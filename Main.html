@@ -1,0 +1,116 @@
+// Use of Local Storage
+
+<html>
+    <head><title>Display authors</title></head>
+    <body>
+        <script> 
+
+            var arr=["J.K Rowling","Mark Twain","Dr.Seuss","Jane Austen","XYZ"];
+            var aut=[];
+            function showAuthors(){
+                //display from local storage
+                document.getElementById("authors").innerHTML=localStorage.authors;
+                
+            }
+            function addAuthors(){
+
+                aut.push(arr.pop());
+                
+                //add to local storage
+                localStorage.authors=aut.toString();
+            }
+            
+        </script>
+        <div>
+        <button onclick="showAuthors()">Click to Display authors</button>
+        <button onclick="addAuthors()">Add Authors</button>
+        <h3>List of authors is:</h3>
+        <p id="authors"></p>
+    </div>
+    </body>
+</html>
+----------------------------------------------------------------------------------
+//Media(Audio and Video)
+
+<html>
+    <head><title>Audio and Video Comtrols</title></head>
+    <body>
+        <div>
+            <h3>Video</h3>
+            <video width="500" height="400" controls>
+                <source src="SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+            </video>
+        
+        </div>
+
+        <div>
+            <h3>Audio</h3>
+            <audio controls>
+                <source src="SampleAudio_0.4mb.mp3" type="audio/mpeg">
+             
+            </audio>
+
+        </div>
+    </body>
+</html>
+
+----------------------------------------------------------------------------------
+//Input types
+
+<html>
+<head><title>XYZ Car Account opening</title></head>
+<body>
+    <h3>XYZ Car Account opening</h3>
+<form action="" autocomplete="on">
+        First name:<input type="text" name="FirstName" autofocus required><br><br>
+
+        Last name: <input type="text" name="LastName" placeholder="Enter Last Name" required><br><br>
+
+        User Name: <input type="text" name="Use Name" maxlength="10" pattern="[a-zA-z0-9]" required><br><br>
+
+        Password:  <input type="password" name="password" placeholder="Enter strong password" required><br><br>
+         
+        Frequency of Use: <input type="number" name="frequency" min="1" width="10" height="5"><br><br>
+
+        E-mail: <input type="email" name="email"><br><br>
+
+        Get offers via email: <input type="radio" name="allow" value="allow" checked> <input type="radio" name="No" value="No"><br><br>
+        
+        <input type="submit" value="Submit">
+
+        <input type="reset">
+
+</form>
+</body>
+</html>
+
+
+----------------------------------------------------------------------------------
+//HTML Geolocation
+
+<html>
+    <head></head>
+    <body><h2>Display Users current location</h2>
+    <input type="text" onmouseover="getLocation()" name="Get Current Location" value="Show Location" style="background-color:cornflowerblue"><br><br>
+    <p id="location"></p>
+    
+    <script>
+        function getLocation(){
+
+        function recieved(location){
+              let lat=location.coords.latitude;
+              let longt=location.coords.longitude;
+              let alt=location.coords.altitude;
+
+              document.getElementById("location").innerHTML="Latitude is"+" "+lat+" "+"Longitude is"+" "+longt+" "+"altitude is"+" "+alt;
+
+        }
+        function reject(location){
+            document.getElementById("location").innerHTML="Location not found";
+        }
+        navigator.geolocation.getCurrentPosition(recieved,reject);
+    }
+    </script>
+    
+    </body>
+</html>
